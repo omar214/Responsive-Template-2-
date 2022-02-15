@@ -27,29 +27,25 @@
         padding-right: 15px;
         margin-left: auto;
         margin-right: auto;
-    }
-
-    /* Small */
-    @media (min-width: 768px) {
-        .container {
+        /* Small */
+        @media (min-width: 768px) {
             width: 750px;
         }
-    }
-
-    /* Medium */
-    @media (min-width: 992px) {
-        .container {
+    
+        /* Medium */
+        @media (min-width: 992px) {
             width: 970px;
         }
-    }
-
-    /* Large */
-    @media (min-width: 1200px) {
-        .container {
+    
+        /* Large */
+        @media (min-width: 1200px) {
             width: 1170px;
         }
     }
-
+    $breakpoint-sm: 576px;
+    $breakpoint-md: 768px;
+    $breakpoint-lg: 992px;
+    $breakpoint-xl: 1200px; 
 /* End Global Rules */
 
 /* start variables*/
@@ -68,6 +64,28 @@ $section-padding: 100px;
     top: 0;
     background-color: rgba(0, 0, 0,  $color);
 }
+@mixin centerX {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+@mixin centerY {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+@mixin center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+@mixin circle($size) {
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+}
+
 /* End components */
 
 // start home section 
@@ -176,13 +194,11 @@ $section-padding: 100px;
     }
 
     .text{
-        color: white;
-        position: absolute;
         left: 0;
-        top: 50%;
-        transform: translateY(-50%);
+        @include centerY();
+        color: white;
         background-color: $transparent-color;
-        width: 50%;
+        width: 60%;
         padding: 50px;
         h2{
             text-transform: uppercase;
@@ -199,15 +215,14 @@ $section-padding: 100px;
     }
 
     i.left-arrow{
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
+        @include centerY();
         color: white;
         font-size: 50px;
         left: 10px;;
         transition: 0.3s;
         &:hover{
             padding-left: 10px;
+            color: $main-color;
         }
         @media (max-width: 768px){
             display: none;
@@ -216,15 +231,14 @@ $section-padding: 100px;
     }
     i.right-arrow{
         &:last-of-type{
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
+            @include centerY();
             color: white;
             font-size: 50px;
             right: 10px;;
             transition: 0.3s;
             &:hover{
                 padding-right: 10px;
+                color: $main-color;
             }
             @media (max-width: 768px){
                 display: none;
@@ -233,13 +247,11 @@ $section-padding: 100px;
     }
 
     .bullets{
+        @include centerX();
+        bottom:20px;
         display: flex;
         justify-content: center;
         align-items: center;
-        position: absolute;
-        bottom:20px;
-        left: 50%;
-        transform: translateX(-50%);
         li{
             width: 20px;
             height: 20px;
@@ -262,3 +274,99 @@ $section-padding: 100px;
 }
 
 // End home section 
+
+
+// start services section 
+.services-section{
+    padding-top: $section-padding;
+    padding-bottom: $section-padding;
+    .container{
+        .special-heading{
+            padding-bottom: 50px;
+            text-align: center;
+            position: relative;
+            h2{
+                &:first-of-type{
+                    text-transform: uppercase;
+                    font-weight: normal;
+                    color: black;
+                    padding-bottom: 30px;
+                    font-size: 40px;
+                    position: relative;
+                    margin-bottom: 40px;
+                }
+                &::before{
+                    content: '';
+                    width: 130px;
+                    height: 2px;
+                    background-color: #777;
+                    @include centerX();
+                    bottom: 0;
+
+                }
+                &::after {
+                    content: "";
+                    @include circle(20px);
+                    @include centerX();
+                    background: white;
+                    border: 1px solid #777;
+                    bottom: -10px;
+                }
+            }
+            p{
+                &:first-of-type{
+                    color: #777;
+                    width: 50%;
+                    text-align: center;
+                    @include centerX();
+                }
+            }
+        }
+        .services{
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 50px;
+            .service{
+                padding: 10px;
+                margin-bottom: 30px;
+                display: flex;
+                flex: 40%;
+                margin-right: 5%;
+                i{
+                    color: $main-color;
+                    margin-right: 30px;
+                }
+                .data{
+                    h2{
+                        margin: 0;
+                        margin-bottom: 30px;
+                        font-size: 30px;
+                        font-weight: normal;
+                    }
+                    p{
+                        font-size: 15px;
+                        color: #777;
+                        line-height: 1.5;
+                    }
+                }
+                @media (max-width: 991px){
+                    flex: 85%;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                    i{
+                       margin-right: 0;
+                       margin-bottom: 30px;
+                    }
+                    .data{
+                        align-items: center;
+                    }
+                }
+            }
+            @media screen and (max-width:$breakpoint-sm) {
+                margin-top: 100px;
+            }
+        }
+    }
+}
+// End services section 
