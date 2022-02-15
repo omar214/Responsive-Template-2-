@@ -642,6 +642,9 @@ img {
   text-align: center;
   flex: 25%;
 }
+.states-section .states-content .state:hover i, .states-section .states-content .state:hover p {
+  color: #19c8fa;
+}
 .states-section .states-content .state i {
   width: 40px;
   height: 40px;
@@ -652,6 +655,10 @@ img {
   background-color: black;
   color: white;
   margin-bottom: 20px;
+  transition: 0.3s;
+}
+.states-section .states-content .state p {
+  transition: 0.3s;
 }
 .states-section .states-content .state p:first-of-type {
   font-size: 30px;
