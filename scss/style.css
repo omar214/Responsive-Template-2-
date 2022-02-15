@@ -91,6 +91,7 @@ img {
   background: white;
   border: 1px solid #777;
   bottom: -10px;
+  transition: 0.3s;
 }
 .special-heading h2:hover::after {
   background-color: #19c8fa;
@@ -433,6 +434,7 @@ img {
 .portfolio-section {
   padding-top: 100px;
   padding-bottom: 100px;
+  position: relative;
 }
 .portfolio-section .container ul {
   display: flex;
@@ -496,7 +498,190 @@ img {
     margin: 0 auto 0;
   }
 }
+.portfolio-section .more-btn {
+  padding: 10px;
+  color: white;
+  background-color: black;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border: none;
+  cursor: pointer;
+  margin-top: 25px;
+  transition: 0.3s;
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+.portfolio-section .more-btn:hover {
+  transform: translate(-50%, 10px) scale(1.1);
+  background-color: #19c8fa;
+}
 
 /* End portfolio section */
+/* start video section */
+.video-section {
+  position: relative;
+}
+.video-section::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.video-section .video {
+  width: 100%;
+  height: 100%;
+}
+.video-section .video-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  height: 40%;
+  background-color: rgba(15, 116, 143, 0.7);
+  color: white;
+}
+.video-section .video-content h2 {
+  font-weight: normal;
+  padding-bottom: 20px;
+}
+@media (max-width: 576px) {
+  .video-section .video-content h2 {
+    font-size: 15px;
+    padding-bottom: 5px;
+  }
+}
+.video-section .video-content p {
+  padding-bottom: 20px;
+}
+@media (max-width: 576px) {
+  .video-section .video-content p {
+    font-size: 10px;
+    padding-bottom: 5px;
+  }
+}
+.video-section .video-content button {
+  background-color: #000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+.video-section .video-content button:hover {
+  background-color: #19c8fa;
+  color: white;
+  outline: none;
+  transform: scale(1.1) translateY(10px);
+}
+@media (max-width: 576px) {
+  .video-section .video-content button {
+    padding: 3px;
+    border-radius: 1px;
+    font-size: 10px;
+  }
+}
+
+/* End video section */
+/* start about section */
+.about-section {
+  padding-top: 100px;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+.about-section .about-img {
+  position: relative;
+  bottom: -120px;
+}
+
+/* End about section */
+/* start states section */
+.states-section {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  min-height: 400px;
+  background-image: url("../asssets/stats.png");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.states-section::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.states-section .states-content {
+  position: relative;
+  width: 60%;
+  min-height: 40%;
+  background-color: rgba(15, 116, 143, 0.7);
+  padding: 50px;
+  color: white;
+  display: flex;
+}
+.states-section .states-content .state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 25%;
+}
+.states-section .states-content .state i {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  margin-bottom: 20px;
+}
+.states-section .states-content .state p:first-of-type {
+  font-size: 30px;
+  font-weight: bold;
+}
+.states-section .states-content .state p:last-of-type {
+  font-size: 14px;
+}
+@media (max-width: 992px) {
+  .states-section .states-content .state {
+    flex: 50%;
+    margin-bottom: 40px;
+  }
+}
+@media (max-width: 768px) {
+  .states-section .states-content .state {
+    flex: 100%;
+  }
+}
+@media (max-width: 992px) {
+  .states-section .states-content {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 576px) {
+  .states-section .states-content {
+    width: 100%;
+  }
+}
+
+/* End states section */
 
 /*# sourceMappingURL=style.css.map */

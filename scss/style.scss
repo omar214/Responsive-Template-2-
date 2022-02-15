@@ -86,6 +86,11 @@ $section-padding: 100px;
     border-radius: 50%;
 }
 
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 /* End End */
 
 /* start global components*/
@@ -121,6 +126,7 @@ $section-padding: 100px;
             background: white;
             border: 1px solid #777;
             bottom: -10px;
+            transition: 0.3s;
         }
         &:hover{
             &::after{
@@ -454,6 +460,7 @@ $section-padding: 100px;
 .portfolio-section{
     padding-top: $section-padding;
     padding-bottom: $section-padding;
+    position: relative;
     .container{
         ul{
             display: flex;
@@ -519,5 +526,159 @@ $section-padding: 100px;
             }
         }
     }
+    .more-btn{
+        padding: 10px;
+        color: white;
+        background-color: black;
+        @include centerX();
+        border: none;
+        cursor: pointer;
+        margin-top: 25px;
+        transition: 0.3s;
+        padding: 10px 20px ;
+        border-radius: 4px;
+        &:hover{
+            transform: translate(-50%, 10px) scale(1.1);
+            background-color: $main-color;
+        }
+    }
 }
 /* End portfolio section */ 
+
+/* start video section */ 
+.video-section{
+    position: relative;
+    &::before{
+        content: '';
+        @include overlay(0.5);
+    }
+    .video{
+        width: 100%;
+        height: 100%
+    }
+    .video-content{
+        @include center(); 
+        @include flex-center();
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        height: 40%;
+        background-color: $transparent-color;
+        color: white;
+
+        h2{
+            font-weight: normal;
+            padding-bottom: 20px;
+            @media (max-width: $breakpoint-sm) {
+                font-size: 15px;
+                padding-bottom: 5px;
+            }
+        }
+        p{
+            padding-bottom: 20px;
+            @media (max-width: $breakpoint-sm) {
+                font-size: 10px;
+                padding-bottom: 5px;
+            }
+        }
+        button{
+            background-color: #000;
+            color: white;
+            border: none;
+            padding: 10px 20px ;
+            border-radius: 4px;
+            transition: 0.3s;
+            &:hover{
+                background-color: $main-color;
+                color: white;
+                outline: none;
+                transform: scale(1.1) translateY(10px);
+            }
+            @media (max-width: $breakpoint-sm) {
+                padding: 3px;
+                border-radius: 1px;
+                font-size: 10px;
+            }
+        }
+    }
+}
+/* End video section */ 
+
+
+/* start about section */ 
+.about-section{
+    padding-top: $section-padding;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    .about-img{
+        position: relative;
+        bottom: -120px;
+    }
+}
+/* End about section */ 
+
+/* start states section */ 
+.states-section {
+    padding-top: calc($section-padding /2);
+    padding-bottom: calc($section-padding /2);
+    min-height: 400px;
+    background-image: url('../asssets/stats.png');
+    background-size: cover;
+    @include flex-center();
+
+    position: relative;
+    &::before{
+        content: '';
+        @include overlay(0.7);
+    }
+    .states-content{
+        position: relative;
+        width: 60%;
+        min-height: 40%;
+        background-color: $transparent-color;
+        padding: 50px;
+        color: white;
+        display: flex;
+
+        .state{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            i{
+                @include circle(40px);
+                @include flex-center();
+                background-color: black;
+                color: white;
+                margin-bottom: 20px;    
+            }
+            p{
+                &:first-of-type{
+                    font-size: 30px;
+                    font-weight: bold;
+                }
+            }
+            p{
+                &:last-of-type{
+                    font-size: 14px;
+                }
+            }
+            flex: 25%;
+            @media (max-width: $breakpoint-lg){
+                flex: 50%;
+                margin-bottom: 40px;
+            }
+            @media (max-width: $breakpoint-md){
+                flex: 100%;
+            }
+        }
+        @media (max-width: $breakpoint-lg){
+            flex-wrap: wrap;
+        }
+        @media (max-width: $breakpoint-sm){
+            width: 100%;
+        }
+    }
+}
+/* End states section */ 
