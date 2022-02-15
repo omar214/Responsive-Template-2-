@@ -55,7 +55,7 @@ $transparent-color: rgb(15 116 143 / 70%);
 $section-padding: 100px;   
 /* End variables*/
 
-/* start components */
+/* start mixins */
 @mixin overlay($color : 0.5) {
     position: absolute;
     width: 100%;
@@ -86,7 +86,58 @@ $section-padding: 100px;
     border-radius: 50%;
 }
 
-/* End components */
+/* End End */
+
+/* start global components*/
+.special-heading{
+    padding-bottom: 50px;
+    text-align: center;
+    position: relative;
+
+    h2{
+        &:first-of-type{
+            text-transform: uppercase;
+            font-weight: normal;
+            color: black;
+            padding-bottom: 30px;
+            font-size: 40px;
+            position: relative;
+            margin-bottom: 40px;
+            transition: 0.3s;
+        }
+        &::before{
+            content: '';
+            width: 130px;
+            height: 2px;
+            background-color: #777;
+            @include centerX();
+            bottom: 0;
+
+        }
+        &:after {
+            content: "";
+            @include circle(20px);
+            @include centerX();
+            background: white;
+            border: 1px solid #777;
+            bottom: -10px;
+        }
+        &:hover{
+            &::after{
+               background-color: $main-color; 
+            }
+        }
+    }
+    p{
+        &:first-of-type{
+            color: #777;
+            width: 50%;
+            text-align: center;
+            @include centerX();
+        }
+    }
+} 
+/* End global components*/
 
 // start home section 
 .home_section {
@@ -272,7 +323,6 @@ $section-padding: 100px;
         }
     }
 }
-
 // End home section 
 
 
@@ -281,47 +331,7 @@ $section-padding: 100px;
     padding-top: $section-padding;
     padding-bottom: $section-padding;
     .container{
-        .special-heading{
-            padding-bottom: 50px;
-            text-align: center;
-            position: relative;
-            h2{
-                &:first-of-type{
-                    text-transform: uppercase;
-                    font-weight: normal;
-                    color: black;
-                    padding-bottom: 30px;
-                    font-size: 40px;
-                    position: relative;
-                    margin-bottom: 40px;
-                }
-                &::before{
-                    content: '';
-                    width: 130px;
-                    height: 2px;
-                    background-color: #777;
-                    @include centerX();
-                    bottom: 0;
 
-                }
-                &::after {
-                    content: "";
-                    @include circle(20px);
-                    @include centerX();
-                    background: white;
-                    border: 1px solid #777;
-                    bottom: -10px;
-                }
-            }
-            p{
-                &:first-of-type{
-                    color: #777;
-                    width: 50%;
-                    text-align: center;
-                    @include centerX();
-                }
-            }
-        }
 
         .services{
             display: flex;
@@ -336,6 +346,11 @@ $section-padding: 100px;
                 i{
                     color: $main-color;
                     margin-right: 30px;
+                    transition: 0.3s;
+                    &:hover{
+                        transform: translateY(-10px) scale(1.3);
+                        // padding-bottom: 20px ;
+                    }
                 }
                 .data{
                     h2{
@@ -373,7 +388,7 @@ $section-padding: 100px;
 // End services section 
 
 // start desing section 
-.design{
+.design-section{
     position: relative;
     height: 600px;
     background-image: url('../asssets/design-features.jpg');
@@ -434,3 +449,75 @@ $section-padding: 100px;
     }
 }
 // End desing section 
+
+/* start portfolio section */ 
+.portfolio-section{
+    padding-top: $section-padding;
+    padding-bottom: $section-padding;
+    .container{
+        ul{
+            display: flex;
+            justify-content:  center;
+            align-items: center;
+            margin-top: 30px;
+            li{
+                display: block;
+                padding: 15px;
+                transition: 0.3s;
+            }
+            li.active , li:hover{
+                background-color: $main-color;
+                color: white;
+
+            }
+        }
+    } 
+
+    .img-container{
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        .card{
+            width: 25%;
+            position: relative;
+            overflow: hidden;
+            img{
+                width: 100%;
+                height: 100%;
+                transition: 0.3s;
+            }
+            .data{
+                position: absolute;
+                bottom: -100%;
+                background: white;
+                width: 100%;
+                padding: 10px 20px;
+                transition: 0.3s;
+                h2{
+                    font-weight: normal;
+                    color: $main-color;
+                }
+                p{
+                    color: #777;
+                }
+            }
+            &:hover{
+                img{
+                    transform: rotate(3deg) scale(1.1);
+                }
+                .data  {
+                    bottom: 0;
+                }
+            }
+
+            @media screen and (max-width:$breakpoint-lg){
+                width: 50%;
+            }
+            @media screen and (max-width:$breakpoint-md){
+                width: 98%;
+                margin: 0 auto 0;
+            }
+        }
+    }
+}
+/* End portfolio section */ 

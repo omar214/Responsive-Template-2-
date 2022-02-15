@@ -52,8 +52,59 @@ img {
 /* End Global Rules */
 /* start variables*/
 /* End variables*/
-/* start components */
-/* End components */
+/* start mixins */
+/* End End */
+/* start global components*/
+.special-heading {
+  padding-bottom: 50px;
+  text-align: center;
+  position: relative;
+}
+.special-heading h2:first-of-type {
+  text-transform: uppercase;
+  font-weight: normal;
+  color: black;
+  padding-bottom: 30px;
+  font-size: 40px;
+  position: relative;
+  margin-bottom: 40px;
+  transition: 0.3s;
+}
+.special-heading h2::before {
+  content: "";
+  width: 130px;
+  height: 2px;
+  background-color: #777;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+}
+.special-heading h2:after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border: 1px solid #777;
+  bottom: -10px;
+}
+.special-heading h2:hover::after {
+  background-color: #19c8fa;
+}
+.special-heading p:first-of-type {
+  color: #777;
+  width: 50%;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* End global components*/
 .home_section {
   min-height: 100vh;
   background-color: aqua;
@@ -256,50 +307,6 @@ img {
   padding-top: 100px;
   padding-bottom: 100px;
 }
-.services-section .container .special-heading {
-  padding-bottom: 50px;
-  text-align: center;
-  position: relative;
-}
-.services-section .container .special-heading h2:first-of-type {
-  text-transform: uppercase;
-  font-weight: normal;
-  color: black;
-  padding-bottom: 30px;
-  font-size: 40px;
-  position: relative;
-  margin-bottom: 40px;
-}
-.services-section .container .special-heading h2::before {
-  content: "";
-  width: 130px;
-  height: 2px;
-  background-color: #777;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 0;
-}
-.services-section .container .special-heading h2::after {
-  content: "";
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  background: white;
-  border: 1px solid #777;
-  bottom: -10px;
-}
-.services-section .container .special-heading p:first-of-type {
-  color: #777;
-  width: 50%;
-  text-align: center;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
 .services-section .container .services {
   display: flex;
   flex-wrap: wrap;
@@ -315,6 +322,10 @@ img {
 .services-section .container .services .service i {
   color: #19c8fa;
   margin-right: 30px;
+  transition: 0.3s;
+}
+.services-section .container .services .service i:hover {
+  transform: translateY(-10px) scale(1.3);
 }
 .services-section .container .services .service .data h2 {
   margin: 0;
@@ -348,14 +359,14 @@ img {
   }
 }
 
-.design {
+.design-section {
   position: relative;
   height: 600px;
   background-image: url("../asssets/design-features.jpg");
   background-size: cover;
   overflow: hidden;
 }
-.design::before {
+.design-section::before {
   content: "";
   position: absolute;
   width: 100%;
@@ -364,22 +375,22 @@ img {
   top: 0;
   background-color: rgba(0, 0, 0, 0.7);
 }
-.design .design-content {
+.design-section .design-content {
   position: relative;
   width: 100%;
   height: 100%;
 }
-.design .design-content img:first-of-type {
+.design-section .design-content img:first-of-type {
   position: absolute;
   bottom: -80px;
   left: 100px;
 }
 @media screen and (max-width: 992px) {
-  .design .design-content img:first-of-type {
+  .design-section .design-content img:first-of-type {
     display: none;
   }
 }
-.design .design-content .data {
+.design-section .design-content .data {
   width: 50%;
   height: 60%;
   background-color: rgba(15, 116, 143, 0.7);
@@ -390,32 +401,102 @@ img {
   right: 0;
   color: white;
 }
-.design .design-content .data h2 {
+.design-section .design-content .data h2 {
   padding-bottom: 40px;
   font-weight: normal;
 }
-.design .design-content .data ul {
+.design-section .design-content .data ul {
   max-width: 100%;
 }
-.design .design-content .data ul li {
+.design-section .design-content .data ul li {
   font-size: 20px;
   display: block;
   padding-bottom: 30px;
   font-weight: normal;
 }
-.design .design-content .data ul li::before {
+.design-section .design-content .data ul li::before {
   content: "\f108";
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   margin-right: 20px;
 }
 @media screen and (max-width: 992px) {
-  .design .design-content .data {
+  .design-section .design-content .data {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 }
+
+/* start portfolio section */
+.portfolio-section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.portfolio-section .container ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+.portfolio-section .container ul li {
+  display: block;
+  padding: 15px;
+  transition: 0.3s;
+}
+.portfolio-section .container ul li.active, .portfolio-section .container ul li:hover {
+  background-color: #19c8fa;
+  color: white;
+}
+.portfolio-section .img-container {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.portfolio-section .img-container .card {
+  width: 25%;
+  position: relative;
+  overflow: hidden;
+}
+.portfolio-section .img-container .card img {
+  width: 100%;
+  height: 100%;
+  transition: 0.3s;
+}
+.portfolio-section .img-container .card .data {
+  position: absolute;
+  bottom: -100%;
+  background: white;
+  width: 100%;
+  padding: 10px 20px;
+  transition: 0.3s;
+}
+.portfolio-section .img-container .card .data h2 {
+  font-weight: normal;
+  color: #19c8fa;
+}
+.portfolio-section .img-container .card .data p {
+  color: #777;
+}
+.portfolio-section .img-container .card:hover img {
+  transform: rotate(3deg) scale(1.1);
+}
+.portfolio-section .img-container .card:hover .data {
+  bottom: 0;
+}
+@media screen and (max-width: 992px) {
+  .portfolio-section .img-container .card {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .portfolio-section .img-container .card {
+    width: 98%;
+    margin: 0 auto 0;
+  }
+}
+
+/* End portfolio section */
 
 /*# sourceMappingURL=style.css.map */
