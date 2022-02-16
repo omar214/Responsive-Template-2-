@@ -98,7 +98,9 @@ $section-padding: 100px;
 .special-heading{
     padding-bottom: 50px;
     text-align: center;
-    position: relative;
+    // position: relative;
+    @include flex-center();
+    flex-direction: column;
 
     h2{
         &:first-of-type{
@@ -140,7 +142,7 @@ $section-padding: 100px;
             color: #777;
             width: 50%;
             text-align: center;
-            @include centerX();
+            // @include centerX();
         }
     }
 } 
@@ -889,12 +891,11 @@ $section-padding: 100px;
                         font-size: 60px;
                         font-weight: bold;
                         position: relative;
-                        &::before{
-                            content: "$";
-                            position: absolute;
-                            left: 30px;
-                            font-size: 20px;
-                            top: 0;
+                        sup{
+                            font-size: 15px;
+                            font-weight: normal;
+                            right: 10px;
+                            top: -2.5em;
                         }
                         &::after{
                             content: "/Mo";
@@ -947,3 +948,116 @@ $section-padding: 100px;
     }
 }
 /* End peicing section*/ 
+
+/* start contact from*/
+.contact-section{
+    .container{
+        .contact-form{
+            padding-top: calc($section-padding /2);
+            padding-bottom: calc($section-padding /2);
+            display: flex;
+            flex-wrap: wrap;
+            .form{
+                flex: 70%;
+                margin-right: 5%;
+                input , textarea{
+                    width: 100%;
+                    padding: 20px 40px;
+                    outline: none;
+                    margin-bottom: 30px;
+                    border: 1px solid #777;
+                    &:focus{
+                        background-color: #f1f1f1;
+                        color: black;
+                    }
+                }
+                textarea{
+                    resize: none;
+                    height: 100px;
+                }
+                @media (max-width:$breakpoint-lg) {
+                    flex: 95%;
+                    margin: 30px auto 30px;
+                    order: 2;
+                }
+            }
+            .data{
+                flex: 20%;
+                padding: 20px  ;
+                h4{
+                    font-size: 20px;
+                    font-weight: normal;
+                    &:first-of-type{
+                        margin-bottom: 30px;
+                    }
+                    &:last-of-type{
+                        margin-top: 65px;
+                    }
+                }
+                .phone{
+                    font-size: 15px;
+                    font-weight: normal
+                }
+                address{
+                    font-size: 15px;
+                }
+                @media(max-width:$breakpoint-lg){
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+}
+/* End contact from*/
+
+
+/* start footer */
+.footer{
+    background-image: url(../asssets/subscribe.jpg);
+    background-size: cover;
+    position: relative;
+    color: white;
+    height: 300px;
+    padding: 50px;
+    &::before{
+        content: '';
+        @include overlay(0.7);
+    }
+    .container{
+        position: relative;
+        @include flex-center();
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        img{
+            height: 40px;
+        }
+        div{
+            &:first-of-type{
+                border-bottom: 1px solid white;
+                padding-bottom: 20px;
+            }
+        }
+        .icons{
+            i{
+                margin-right: 20px;
+                font-size: 20px;
+                &:hover{
+                    color: $main-color;
+                    transform: scale(1.3) translateY(5px);
+                }
+            }
+        }
+        p{
+            &:last-of-type{
+                span{
+                    color: $main-color;
+                }
+            }
+        }
+    }
+}
+/* End footer */

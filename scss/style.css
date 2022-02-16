@@ -59,7 +59,10 @@ img {
 .special-heading {
   padding-bottom: 50px;
   text-align: center;
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .special-heading h2:first-of-type {
   text-transform: uppercase;
@@ -101,9 +104,6 @@ img {
   color: #777;
   width: 50%;
   text-align: center;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 /* End global components*/
@@ -888,12 +888,11 @@ img {
   font-weight: bold;
   position: relative;
 }
-.pricing-section .container .prices .price .head p::before {
-  content: "$";
-  position: absolute;
-  left: 30px;
-  font-size: 20px;
-  top: 0;
+.pricing-section .container .prices .price .head p sup {
+  font-size: 15px;
+  font-weight: normal;
+  right: 10px;
+  top: -2.5em;
 }
 .pricing-section .container .prices .price .head p::after {
   content: "/Mo";
@@ -947,5 +946,116 @@ img {
 }
 
 /* End peicing section*/
+/* start contact from*/
+.contact-section .container .contact-form {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.contact-section .container .contact-form .form {
+  flex: 70%;
+  margin-right: 5%;
+}
+.contact-section .container .contact-form .form input, .contact-section .container .contact-form .form textarea {
+  width: 100%;
+  padding: 20px 40px;
+  outline: none;
+  margin-bottom: 30px;
+  border: 1px solid #777;
+}
+.contact-section .container .contact-form .form input:focus, .contact-section .container .contact-form .form textarea:focus {
+  background-color: #f1f1f1;
+  color: black;
+}
+.contact-section .container .contact-form .form textarea {
+  resize: none;
+  height: 100px;
+}
+@media (max-width: 992px) {
+  .contact-section .container .contact-form .form {
+    flex: 95%;
+    margin: 30px auto 30px;
+    order: 2;
+  }
+}
+.contact-section .container .contact-form .data {
+  flex: 20%;
+  padding: 20px;
+}
+.contact-section .container .contact-form .data h4 {
+  font-size: 20px;
+  font-weight: normal;
+}
+.contact-section .container .contact-form .data h4:first-of-type {
+  margin-bottom: 30px;
+}
+.contact-section .container .contact-form .data h4:last-of-type {
+  margin-top: 65px;
+}
+.contact-section .container .contact-form .data .phone {
+  font-size: 15px;
+  font-weight: normal;
+}
+.contact-section .container .contact-form .data address {
+  font-size: 15px;
+}
+@media (max-width: 992px) {
+  .contact-section .container .contact-form .data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+/* End contact from*/
+/* start footer */
+.footer {
+  background-image: url(../asssets/subscribe.jpg);
+  background-size: cover;
+  position: relative;
+  color: white;
+  height: 300px;
+  padding: 50px;
+}
+.footer::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.footer .container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.footer .container img {
+  height: 40px;
+}
+.footer .container div:first-of-type {
+  border-bottom: 1px solid white;
+  padding-bottom: 20px;
+}
+.footer .container .icons i {
+  margin-right: 20px;
+  font-size: 20px;
+}
+.footer .container .icons i:hover {
+  color: #19c8fa;
+  transform: scale(1.3) translateY(5px);
+}
+.footer .container p:last-of-type span {
+  color: #19c8fa;
+}
+
+/* End footer */
 
 /*# sourceMappingURL=style.css.map */
