@@ -693,6 +693,30 @@ $section-padding: 100px;
 }
 /* End states section */ 
 
+.quote{
+    background-image:url(../asssets/quote.jpg) ;
+    background-size: cover;
+    min-height: 300px;
+    @include flex-center();
+    position: relative;
+    &::before{
+        content: '';
+        @include overlay(0.8);
+    }
+    .container{
+        position: relative;
+        text-align: center;
+        color: white;
+
+        q{
+            font-size: 30px;
+            margin-bottom: 30px;
+            display: block;
+        }
+        p{
+        }
+    }
+}
 
 /* start testmonils section */ 
 .testmonials-section{
