@@ -5,6 +5,7 @@
         box-sizing: border-box;
         padding: 0;
         margin: 0;
+        transition: 0.3s;
     }
 
     html {
@@ -462,6 +463,7 @@ $section-padding: 100px;
     padding-bottom: $section-padding;
     position: relative;
     .container{
+        padding-bottom: 50px;
         ul{
             display: flex;
             justify-content:  center;
@@ -476,6 +478,9 @@ $section-padding: 100px;
                 background-color: $main-color;
                 color: white;
 
+            }
+            @media (max-width: $breakpoint-sm) {
+                margin-top: 80px;
             }
         }
     } 
@@ -687,3 +692,148 @@ $section-padding: 100px;
     }
 }
 /* End states section */ 
+
+
+/* start testmonils section */ 
+.testmonials-section{
+    padding-top: $section-padding;
+    padding-bottom: $section-padding;
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        
+        .card{
+            flex: 45%;
+            &:first-of-type{
+                margin-right: 5%;
+            }
+            @media (max-width:$breakpoint-lg) {
+                flex: 90%;
+                margin: 20px 0 20px;
+                &:first-of-type{
+                    margin-right: 0%;
+                }
+            }
+        }
+        .heading{
+            text-align: center;
+            h2{
+                font-weight: normal;
+                color: #19c8fa;
+                font-size: 40px;
+                margin-bottom: 20px;
+            }
+            p{
+                color: #777;
+                line-height: 1.5;
+            }
+            margin-bottom: 30px;
+        }
+
+        .testmonials{
+            position: relative;
+            padding: 20px auto 40px;
+            .testmonial{
+                display: flex;
+                justify-content: space-between;
+                @media (max-width:$breakpoint-lg) {
+                    margin-top: 30px;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+                }
+                img{
+                    &:first-of-type{
+                        @include circle(100px); 
+                        margin-right: 5%;
+                        margin-bottom: 30px;
+                    }
+                }
+                .content{
+                    flex: 1;
+                    border-bottom: 1px solid #777;
+                    margin-bottom: 20px;
+                    p{
+                        margin-bottom: 30px;
+                        &:first-of-type{
+                        }
+                        &:nth-of-type(2){
+                            color: #777;
+                            margin-top: 10px;
+                            text-align: right;
+                        }
+                    }
+                }
+            }
+            .bullets{
+                bottom:20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                li{
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    background-color: white;
+                    border: 1px solid #777;
+                    margin-right: 20px; 
+                    transition: 0.3s;
+                    &:hover, &__active{
+                        background-color: $main-color;
+                        border: none;
+                        transform: translateY(-10px) scale(1.1);
+                    }
+                }
+                li.active{
+                    background-color: $main-color;
+                    border: none;
+                }
+            }
+        }
+        .skills{
+            .skill{
+                margin-bottom: 20px;
+                h4{
+                    margin-bottom: 15px;
+                    font-weight: normal;
+                    text-transform: uppercase;
+                }
+                .prog-holder{
+                    height: 30px;
+                    background-color: #888;
+                    span{
+                        height: 100%;
+                        background-color: $main-color;
+                        display: block;
+                        position: relative;
+                        text-align: right;
+                        font-size: 25px;
+                        // &::before{
+                        //     content: "90%";
+                        //     position: absolute;
+                        //     right: 0;
+                        //     top: -130%;
+                        //     background-color: black;
+                        //     color: white;
+                        //     border-radius: 10px;
+                        //     padding: 5px;
+                        
+                        // }
+                        // &::after{
+                        //     content: '';
+                        //     border: 5px solid;
+                        //     border-color: red green blue yellow;
+                        //     position: absolute;
+                        //     right: 0;
+                        // }
+                    }
+                }
+            }
+        }
+
+    }
+}
+/* end testmonils section */ 
+

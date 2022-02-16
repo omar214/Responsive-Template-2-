@@ -5,6 +5,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  transition: 0.3s;
 }
 
 html {
@@ -436,6 +437,9 @@ img {
   padding-bottom: 100px;
   position: relative;
 }
+.portfolio-section .container {
+  padding-bottom: 50px;
+}
 .portfolio-section .container ul {
   display: flex;
   justify-content: center;
@@ -450,6 +454,11 @@ img {
 .portfolio-section .container ul li.active, .portfolio-section .container ul li:hover {
   background-color: #19c8fa;
   color: white;
+}
+@media (max-width: 576px) {
+  .portfolio-section .container ul {
+    margin-top: 80px;
+  }
 }
 .portfolio-section .img-container {
   margin-top: 20px;
@@ -690,5 +699,127 @@ img {
 }
 
 /* End states section */
+/* start testmonils section */
+.testmonials-section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.testmonials-section .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.testmonials-section .container .card {
+  flex: 45%;
+}
+.testmonials-section .container .card:first-of-type {
+  margin-right: 5%;
+}
+@media (max-width: 992px) {
+  .testmonials-section .container .card {
+    flex: 90%;
+    margin: 20px 0 20px;
+  }
+  .testmonials-section .container .card:first-of-type {
+    margin-right: 0%;
+  }
+}
+.testmonials-section .container .heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.testmonials-section .container .heading h2 {
+  font-weight: normal;
+  color: #19c8fa;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+.testmonials-section .container .heading p {
+  color: #777;
+  line-height: 1.5;
+}
+.testmonials-section .container .testmonials {
+  position: relative;
+  padding: 20px auto 40px;
+}
+.testmonials-section .container .testmonials .testmonial {
+  display: flex;
+  justify-content: space-between;
+}
+@media (max-width: 992px) {
+  .testmonials-section .container .testmonials .testmonial {
+    margin-top: 30px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+}
+.testmonials-section .container .testmonials .testmonial img:first-of-type {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 5%;
+  margin-bottom: 30px;
+}
+.testmonials-section .container .testmonials .testmonial .content {
+  flex: 1;
+  border-bottom: 1px solid #777;
+  margin-bottom: 20px;
+}
+.testmonials-section .container .testmonials .testmonial .content p {
+  margin-bottom: 30px;
+}
+.testmonials-section .container .testmonials .testmonial .content p:nth-of-type(2) {
+  color: #777;
+  margin-top: 10px;
+  text-align: right;
+}
+.testmonials-section .container .testmonials .bullets {
+  bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.testmonials-section .container .testmonials .bullets li {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: white;
+  border: 1px solid #777;
+  margin-right: 20px;
+  transition: 0.3s;
+}
+.testmonials-section .container .testmonials .bullets li:hover, .testmonials-section .container .testmonials .bullets li__active {
+  background-color: #19c8fa;
+  border: none;
+  transform: translateY(-10px) scale(1.1);
+}
+.testmonials-section .container .testmonials .bullets li.active {
+  background-color: #19c8fa;
+  border: none;
+}
+.testmonials-section .container .skills .skill {
+  margin-bottom: 20px;
+}
+.testmonials-section .container .skills .skill h4 {
+  margin-bottom: 15px;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+.testmonials-section .container .skills .skill .prog-holder {
+  height: 30px;
+  background-color: #888;
+}
+.testmonials-section .container .skills .skill .prog-holder span {
+  height: 100%;
+  background-color: #19c8fa;
+  display: block;
+  position: relative;
+  text-align: right;
+  font-size: 25px;
+}
+
+/* end testmonils section */
 
 /*# sourceMappingURL=style.css.map */
